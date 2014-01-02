@@ -23,6 +23,7 @@ common_SRC_FILES := \
 	pngwutil.c
 
 common_CFLAGS := -std=gnu89 -fvisibility=hidden ## -fomit-frame-pointer
+common_CFLAGS += -fno-lto
 
 ifeq ($(HOST_OS),windows)
   ifeq ($(USE_MINGW),)
@@ -52,7 +53,6 @@ LOCAL_MODULE:= libpng
 LOCAL_COPY_HEADERS_TO := $(common_COPY_HEADERS_TO)
 LOCAL_COPY_HEADERS := $(common_COPY_HEADERS)
 
-LOCAL_CFLAGS += -fno-lto
 
 include $(BUILD_HOST_STATIC_LIBRARY)
 
